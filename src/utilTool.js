@@ -1,3 +1,47 @@
+const colors = require('colors');
+
+const debug = {
+  msg(msg, type) {
+    this.msg = msg;
+    this.type = type;
+    this.colors = {
+      log: 'green',
+      warn: 'yellow',
+      error: 'red',
+    };
+    switch (type) {
+      case 'log' :
+        this.outColor = this.colors.log;
+        this.style = this.type;
+        this.msg = this.msg;
+        break;
+      case 'warn' :
+        this.outColor = this.colors.warn;
+        this.style = this.type;
+        this.msg = this.msg;
+        break;
+      case 'error' :
+        this.outColor = this.colors.error;
+        this.style = this.type;
+        this.msg = this.msg;
+        break;
+      default :
+        return 'Invalid message type';
+    }
+    return this.output(this.msg, this.outColor, this.type);
+  },
+  output(msg, color, type) {
+    this.msg = msg;
+    this.color = color;
+    this.type = type;
+    if (true) {
+      console.log(`${msg}` + '.' + color);
+    }
+  },
+};
+
+exports.con = debug;
+
 exports.debug = (title, obj) => {
   const colors = require('colors');
   const fs = require('fs');
@@ -13,7 +57,7 @@ exports.debug = (title, obj) => {
   });
   const output = border + title + JSON.stringify(obj) + '\n' + time + border;
 
-  if (process.env.DEBUG) {
+  if (true) {
     console.log(output);
   }
 };
