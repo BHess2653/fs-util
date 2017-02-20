@@ -14,11 +14,11 @@ const debug = {
 
     switch (this.type) {
       case 'log' :
-        return console.log(`${this.border}${this.msg}\n${this.time}` .green);
+        return console.log(`${this.border}~~~~~~~~ ${this.type.toUpperCase()} Event ~~~~~~~~\n${this.msg}\n${this.time}`.green);
       case 'warn' :
-        return console.warn(`${this.border}${this.msg}\n${this.time}` .yellow);
+        return console.warn(`${this.border}~~~~~~~~ ${this.type.toUpperCase()} Event ~~~~~~~~\n${this.msg}\n${this.time}`.yellow);
       case 'error' :
-        return console.error(`${this.border}${this.msg}\n${this.time}` .red);
+        return console.error(`${this.border}~~~~~~~~ ${this.type.toUpperCase()} Event ~~~~~~~~\n${this.msg}\n${this.time}`.red);
       default :
         return 'Invalid message type';
     }
