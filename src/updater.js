@@ -12,7 +12,7 @@ class versionUpdate {
   // param ver is the updated version from updateAuto
   updatePackage(ver) {
     // read in the current package.json
-    this.oldPackage = JSON.parse(fs.readFileSync('../package.json'));
+    this.oldPackage = JSON.parse(fs.readFileSync('./package.json'));
     // set the version var
     this.version = ver;
     // adjust the version on the old package.json
@@ -24,7 +24,7 @@ class versionUpdate {
     // set the status
     this.status = 'package.json updated.';
     // write to package.json
-    fs.writeFile('../package.json', this.package, (err) => {
+    fs.writeFile('./package.json', this.package, (err) => {
       if (err) {
         // if there is an error change the status to that error
         this.status = err;
@@ -80,7 +80,7 @@ class versionUpdate {
   // params: rel: release type
   updateAuto(rel) {
     // read the old package
-    this.oldPackage = JSON.parse(fs.readFileSync('../package.json'));
+    this.oldPackage = JSON.parse(fs.readFileSync('./package.json'));
     // split the old version into an array
     this.current = this.oldPackage.version.split('.');
     // set n to nothing
