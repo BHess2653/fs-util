@@ -1,4 +1,4 @@
-const v = require('../src/updater.js');
+const v = require('../src/updater');
 const expect = require('chai').expect;
 
 describe('Util Tool DEBUG', () => {
