@@ -1,24 +1,20 @@
 # Install
+## [ ![Codeship Status for DPCobb/fs-utilTool](https://app.codeship.com/projects/a212a0b0-d9fa-0134-a3d0-5af04d25d964/status?branch=log-enhance)](https://app.codeship.com/projects/203546)
 ```
 npm install utiltool
+npm install
 ```
-utiltool uses colors
+## Using utilTool
+utilTool takes to parameters: the message and the type. The available types are error, log, and warn.
+The different types will print out in different colors in the console for easy recognition.
+Example assuming you require utilTool as the variable con:
 ```
-colors.setTheme({
-  create: 'green',
-  read: 'yellow',
-  update: 'magenta',
-  delete: 'red',
-  error: 'red',
-});
+con.msg('hello world', 'log')
 ```
-
-output
+Will output the following in the console:
 ```
-utiltool.debug('Example'.create);
-
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-it will print Example in Green
-Sun Feb 19 2017 15:27:09 GMT-0500 (EST)
-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+~~~~~~~~ LOG Event ~~~~~~~~
+hello world
+Mon Feb 20 2017 19:13:26 GMT-0500 (EST)
 ```

@@ -1,19 +1,19 @@
-exports.debug = (title, obj) => {
-  const colors = require('colors');
-  const fs = require('fs');
+const colors = require('colors');
+require('dotenv').config;
 
-  const border = '\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n';
-  const time = new Date();
-  colors.setTheme({
-    create: 'green',
-    read: 'yellow',
-    update: 'magenta',
-    delete: 'red',
-    error: 'red',
-  });
-  const output = border + title + JSON.stringify(obj) + '\n' + time + border;
-
-  if (process.env.DEBUG) {
-    console.log(output);
-  }
+module.exports = {
+  msg(m, t) {
+    const msg = m;
+    let type = t;
+    const time = new Date();
+    const border = '\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n';
+    if (type === 'log' && process.env.DEBUG) {
+      console.log(`${border}~~~~~~~~ ${type.toUpperCase()} Event ~~~~~~~~\n${msg}\n${time}`.green);
+    } else if (type === 'warn' && process.env.DEBUG) {
+      type = 'Warning';
+      console.warn(`${border}~~~~~~~~ ${type.toUpperCase()} Event ~~~~~~~~\n${msg}\n${time}`.yellow);
+    } else if (type === 'error' && process.env.DEBUG) {
+      console.error(`${border}~~~~~~~~ ${type.toUpperCase()} Event ~~~~~~~~\n${msg}\n${time}`.red);
+    }
+  },
 };
