@@ -15,19 +15,19 @@ class console {
   }
 }
 module.exports = {
-  msg(msg, type) {
-    this.msg = msg;
-    this.type = type;
-    this.time = new Date();
-    this.border = '\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n';
+  msg(m, t) {
+    const msg = m;
+    let type = t;
+    const time = new Date();
+    const border = '\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n';
     const con = new console();
-    if (this.type === 'log') {
-      con.log(`${this.border}~~~~~~~~ ${this.type.toUpperCase()} Event ~~~~~~~~\n${this.msg}\n${this.time}`.green);
-    } else if (this.type === 'warn') {
-      this.type = 'Warning';
-      con.warn(`${this.border}~~~~~~~~ ${this.type.toUpperCase()} Event ~~~~~~~~\n${this.msg}\n${this.time}`.yellow);
-    } else if (this.type === 'error') {
-      con.error(`${this.border}~~~~~~~~ ${this.type.toUpperCase()} Event ~~~~~~~~\n${this.msg}\n${this.time}`.red);
+    if (type === 'log') {
+      con.log(`${border}~~~~~~~~ ${type.toUpperCase()} Event ~~~~~~~~\n${msg}\n${time}`.green);
+    } else if (type === 'warn') {
+      type = 'Warning';
+      con.warn(`${border}~~~~~~~~ ${type.toUpperCase()} Event ~~~~~~~~\n${msg}\n${time}`.yellow);
+    } else if (type === 'error') {
+      con.error(`${border}~~~~~~~~ ${type.toUpperCase()} Event ~~~~~~~~\n${msg}\n${time}`.red);
     }
   },
 };
