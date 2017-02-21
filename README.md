@@ -1,4 +1,5 @@
 # Install
+##[ ![Codeship Status for DPCobb/fs-utilTool](https://app.codeship.com/projects/a212a0b0-d9fa-0134-a3d0-5af04d25d964/status?branch=version-updater)](https://app.codeship.com/projects/203546)
 ```
 npm install utiltool
 ```
